@@ -3,12 +3,14 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    background: linear-gradient(135deg, #121212, #1a1a1a); /* Gradient background */
+    color: #e0e0e0; /* Light text color */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* Dark gradient */
+    color: #00bcd4; /* Cyan color for text */
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -23,26 +25,92 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #00bcd4; /* Cyan color for links */
     text-decoration: none;
+    transition: color 0.3s, transform 0.3s; /* Added transform for scaling effect */
+}
+
+nav ul li a:hover {
+    color: #ffffff; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge the link */
 }
 
 section {
-    padding: 20px;
+    padding: 40px 20px;
+    border-bottom: 1px solid #333; /* Subtle border */
+}
+
+h2 {
+    color: #00bcd4; /* Cyan color for section headings */
 }
 
 .portfolio-item {
     margin: 20px 0;
+    transition: transform 0.3s; /* Smooth scaling effect */
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the portfolio item on hover */
 }
 
 .portfolio-item img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
 }
 
 footer {
     text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #000000;
+    padding: 20px 0;
+    border-top ```css
+: 1px solid #333; /* Subtle top border */
+    background: #1a1a1a; /* Dark footer background */
+    color: #00bcd4; /* Cyan color for footer text */
+}
+
+/* Popup Styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.popup-content {
+    background-color: #1a1a1a; /* Dark background for popup */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #00bcd4; /* Cyan border */
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.close {
+    color: #aaa; /* Light gray */
+    float: right; /* Float to the right */
+    font-size: 28px; /* Large font size */
+    font-weight: bold; /* Bold text */
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* Change color on hover */
+    text-decoration: none;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Add transitions for smooth hover effects */
+.popup {
+    animation: fadeIn 0.5s; /* Fade-in effect for the popup */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
