@@ -1,116 +1,227 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background: linear-gradient(135deg, #121212, #1a1a1a); /* Gradient background */
-    color: #e0e0e0; /* Light text color */
+    background-color: #1e1e2f; /* Dark base color */
+    color: #f4f4f4; /* Light text for dark mode */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #f4f4f4; /* Light base color */
+    color: #333; /* Dark text for light mode */
 }
 
 header {
-    background: linear-gradient(135deg, #1a1a1a, #0d0d0d); /* Dark gradient */
-    color: #00bcd4; /* Cyan color for text */
-    padding: 20px 0;
-    text-align: center;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40); /* Dark gradient */
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+header.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0); /* Light gradient */
+    color: #333;
 }
 
 nav ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 1rem;
 }
 
 nav ul li a {
-    color: #00bcd4; /* Cyan color for links */
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s, transform 0.3s; /* Added transform for scaling effect */
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ffffff; /* Change color on hover */
-    transform: scale(1.1); /* Slightly enlarge the link */
+    color: #00b4d8; /* Electric blue for hover */
 }
 
-section {
-    padding: 40px 20px;
-    border-bottom: 1px solid #333; /* Subtle border */
+#theme-toggle {
+    background-color: #00b4d8; /* Electric blue */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-h2 {
-    color: #00bcd4; /* Cyan color for section headings */
+#theme-toggle:hover {
+    background-color: #06d6a0; /* Soft teal */
 }
 
-.portfolio-item {
-    margin: 20px 0;
-    transition: transform 0.3s; /* Smooth scaling effect */
+.hero {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40); /* Dark gradient */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-.portfolio-item:hover {
-    transform: scale(1.05); /* Slightly enlarge the portfolio item on hover */
+.hero.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0); /* Light gradient */
+    color: #333;
 }
 
-.portfolio-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Rounded corners for images */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.cta {
+    background-color: #00b4d8; /* Electric blue */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta:hover {
+    background-color: #06d6a0; /* Soft teal */
+}
+
+.about, .skills, .projects, .contact {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40); /* Dark gradient */
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+
+.about.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0); /* Light gradient */
+}
+
+.skills {
+    background: linear-gradient(135deg, #00b4d8, #06d6a0); /* Teal-blue gradient */
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+}
+
+.projects {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Blue-purple gradient */
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+
+.contact {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40); /* Dark gradient */
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+}
+
+.contact.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0); /* Light gradient */
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill, .project {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #f4f4f4;
+}
+
+body.light-mode .skill, body.light-mode .project {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    color: #333;
+}
+
+.skill:hover, .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #f4f4f4;
+}
+
+body.light-mode .contact form input, body.light-mode .contact form textarea {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-color: #666;
+}
+
+.contact form button {
+    background-color: #00b4d8; /* Electric blue */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.contact form button:hover {
+    background-color: #06d6a0; /* Soft teal */
 }
 
 footer {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40); /* Dark gradient */
+    color: #fff;
     text-align: center;
-    padding: 20px 0;
-    border-top ```css
-: 1px solid #333; /* Subtle top border */
-    background: #1a1a1a; /* Dark footer background */
-    color: #00bcd4; /* Cyan color for footer text */
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
-/* Popup Styles */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+footer.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0); /* Light gradient */
+    color: #333;
 }
 
-.popup-content {
-    background-color: #1a1a1a; /* Dark background for popup */
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #00bcd4; /* Cyan border */
-    width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 8px; /* Rounded corners */
-}
-
-.close {
-    color: #aaa; /* Light gray */
-    float: right; /* Float to the right */
-    font-size: 28px; /* Large font size */
-    font-weight: bold; /* Bold text */
-}
-
-.close:hover,
-.close:focus {
-    color: #ffffff; /* Change color on hover */
-    text-decoration: none;
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Add transitions for smooth hover effects */
-.popup {
-    animation: fadeIn 0.5s; /* Fade-in effect for the popup */
-}
-
+/* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

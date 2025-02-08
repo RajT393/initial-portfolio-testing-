@@ -3,68 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <p>2D Designer</p>
         <nav>
             <ul>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#skills" id="skillsLink">Skills</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle">Dark Mode</button></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Tadikamalla Koteswara Raju</h1>
+            <p>A passionate Designer</p>
+            <a href="#contact" class="cta">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
         <h2>About Me</h2>
-        <p>Brief introduction about yourself and your design philosophy.</p>
+        <p>Expert Canva designer specializing in compelling visual content, branding, and poster design. Currently honing design skills at Pocket Lab since October 2024. Strong understanding of color theory, typography, and composition, ensuring aesthetically compelling designs. Familiar with Adobe Photoshop for basic editing and refinements. Passionate about design thinking and innovation, committed to crafting solutions that enhance user experience and engagement. Eager to contribute to creative projects that push design boundaries.</p>
     </section>
 
-    <section id="portfolio">
-        <h2>My Work</h2>
-        <div class="portfolio-item">
-            <img src="project1.jpg" alt="Project 1">
-            <h3>Project Title 1</h3>
-            <p>Description of the project.</p>
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
         </div>
-        <div class="portfolio-item">
-            <img src="project2.jpg" alt="Project 2">
-            <h3>Project Title 2</h3>
-            <p>Description of the project.</p>
-        </div>
-        <!-- Add more projects as needed -->
     </section>
 
-    <section id="contact">
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of Project 1</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of Project 2</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Description of Project 3</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
         <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <p>&copy; 2023 [Your Name]. All rights reserved.</p>
     </footer>
-
-    <!-- Skills Popup -->
-    <div id="skillsPopup" class="popup">
-        <div class="popup-content">
-            <span class="close">&times;</span>
-            <h2>Skills</h2>
-            <ul>
-                <li>Adobe Illustrator</li>
-                <li>Adobe Photoshop</li>
-                <li>Adobe InDesign</li>
-                <li>Figma</li>
-                <li>Sketch</li>
-                <li>Digital Illustration</li>
-                <li>UI/UX Design</li>
-            </ul>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
